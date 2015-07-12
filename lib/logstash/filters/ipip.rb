@@ -158,7 +158,14 @@ class LogStash::Filters::IPIP < LogStash::Filters::Base
 
   public
   def register
-    # Add instance variables 
+    #@database = ::Dir.glob(::File.join(::File.expand_path("../../../vendor/", ::File.dirname(__FILE__)),"ipip.datx")).first
+    #p @database 
+    #if !File.exists?(@database)
+    #  raise "You must specify 'database => ...' in your geoip filter (I looked for '#{@database}'"
+    #end
+
+    #@logger.info("Using geoip database", :path => @database)
+  
   end # def register
 
   public
