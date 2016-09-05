@@ -9,7 +9,7 @@ module SeventeenMon
     private_class_method :new
   
     def ip_db_path
-      @ip_db_path ||= File.expand_path'../../../../vender/ipip.datx', __FILE__
+      @ip_db_path ||= File.expand_path'../../../../vendor/ipip.datx', __FILE__
     end
   
     def ip_db
