@@ -1,15 +1,17 @@
-require "logstash/devutils/rspec/spec_helper"
+# encoding: utf-8
+require 'spec_helper'
 require "logstash/filters/ipip"
 
 describe LogStash::Filters::IPIP do
   describe "Test ip 8.8.8.8" do
-    config <<-CONFIG
+    let(:config) do <<-CONFIG
       filter {
         ipip {
           source => "ip"
         }
       }
     CONFIG
+    end
 
     sample("ip" => "8.8.8.8") do
       insist { subject }.include?("ipip")
@@ -22,7 +24,7 @@ describe LogStash::Filters::IPIP do
   end
 
   describe "Specify the target" do
-    config <<-CONFIG
+    let(:config) do <<-CONFIG
       filter {
         ipip {
           source => "ip"
@@ -30,6 +32,7 @@ describe LogStash::Filters::IPIP do
         }
       }
     CONFIG
+    end
 
     sample("ipip" => "8.8.8.8") do
       insist { subject }.include?("src_ip")
